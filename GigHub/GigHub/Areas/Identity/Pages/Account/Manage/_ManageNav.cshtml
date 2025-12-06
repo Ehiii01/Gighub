@@ -1,4 +1,5 @@
-﻿@inject SignInManager<AppUser> SignInManager
+﻿@using GigHub.Models
+@inject SignInManager<ApplicationUser> SignInManager
 @{
     var hasExternalLogins = (await SignInManager.GetExternalAuthenticationSchemesAsync()).Any();
 }

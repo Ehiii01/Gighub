@@ -2,7 +2,7 @@
 // The .NET Foundation licenses this file to you under the MIT license.
 using System;
 using System.Threading.Tasks;
-using GigHub;
+using GigHub.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -12,11 +12,11 @@ namespace GigHub.Areas.Identity.Pages.Account.Manage
 {
     public class PersonalDataModel : PageModel
     {
-        private readonly UserManager<AppUser> _userManager;
+        private readonly UserManager<ApplicationUser> _userManager;
         private readonly ILogger<PersonalDataModel> _logger;
 
         public PersonalDataModel(
-            UserManager<AppUser> userManager,
+            UserManager<ApplicationUser> userManager,
             ILogger<PersonalDataModel> logger)
         {
             _userManager = userManager;
