@@ -13,5 +13,8 @@ namespace GigHub.Data
         protected ApplicationDbContext()
         {
         }
+
+        public DbSet<Gig> Gigs { get; set; }
+        public DbSet<Genre> Genres { get; set; }
     }
 }

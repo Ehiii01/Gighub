@@ -6,10 +6,13 @@ namespace GigHub.Models
     {
         public ApplicationUser()
         {
+
         }
 
-        //public ApplicationUser(string userName) : base(userName)
-        //{
-        //}
+        public ApplicationUser(string userName) : base(userName)
+        {
+
+        }
+
     }
 }
