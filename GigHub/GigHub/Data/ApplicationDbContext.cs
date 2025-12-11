@@ -14,6 +14,11 @@ namespace GigHub.Data
         {
         }
 
+        //public ApplicationDbContext Create()
+        //{
+        //    return new ApplicationDbContext();
+        //}
+
         public DbSet<Gig> Gigs { get; set; }
         public DbSet<Genre> Genres { get; set; }
     }
