@@ -36,13 +36,13 @@ namespace GigHub.Controllers
             var gig = new Gig
             {
                 ArtistId = User.FindFirstValue(ClaimTypes.NameIdentifier),
-                DateTime = DateTime.Parse(string.Format("{0} {1}", viewModel.Date, viewModel.Time)),
+                DateTime = viewModel.DateTime,
                 GenreId = viewModel.Genre,
                 Venue = viewModel.Venue
             };
             _context.Gigs.Add(gig);
             _context.SaveChanges();
-            return RedirectToAction("Create", "Gigs");
+            return RedirectToAction("Index", "Home");
 
         }
     }
