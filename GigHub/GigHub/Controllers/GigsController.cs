@@ -11,40 +11,40 @@ namespace GigHub.Controllers
     {
         private readonly ApplicationDbContext _context;
 
-        public GigsController(ApplicationDbContext context)
-        {
-            _context = context;
-        }
+        public GigsController(ApplicationDbContext context) { _context = context; }
 
 
         [Authorize]
         public ActionResult Create()
         {
-            var viewModel = new GigFormViewModel
+            var viewModel = new GigFormViewModel 
             {
-                Genres = _context.Genres.ToList()
+                Genres = _context.Genres.ToList() 
             };
             return View(viewModel);
         }
-
 
         [Authorize]
         [HttpPost]
         public ActionResult Create(GigFormViewModel viewModel)
         {
+            if(!ModelState.IsValid)
+            {
+                viewModel.Genres = _context.Genres.ToList();
+                return View("Create",viewModel);
+            }
 
             var gig = new Gig
             {
                 ArtistId = User.FindFirstValue(ClaimTypes.NameIdentifier),
-                DateTime = viewModel.DateTime,
+                DateTime = viewModel.GetDateTime(),
                 GenreId = viewModel.Genre,
                 Venue = viewModel.Venue
             };
+
             _context.Gigs.Add(gig);
             _context.SaveChanges();
             return RedirectToAction("Index", "Home");
-
         }
     }
-
 }
