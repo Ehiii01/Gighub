@@ -7,6 +7,7 @@
 <h2>Add a Gig</h2>
 @using (Html.BeginForm("Create", "Gigs"))
 {
+    @Html.AntiForgeryToken()
 
     <div class="form-group pt-3">
         @Html.LabelFor(m => m.Venue)    
