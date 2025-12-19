@@ -20,3 +20,60 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+/* Bootstrap Overrides*/
+body{
+    font-size: 17px;
+}
+.bg-primary {
+    --bs-bg-opacity: 1;
+    background-color: rgb(253 13 13) !important;
+}
+
+.text-dark {
+    --bs-text-opacity: 1;
+    color: rgb(255 255 255) !important;
+}
+
+:root {
+    --bs-font-sans-serif: Lato, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --bs-body-font-size: 17px;
+}
+
+
+
+.form-group {
+    padding-top: 1rem !important;
+    margin-bottom: 20px;
+}
+
+.form-control {
+    font-size: 17px;
+    padding: 20px 15px;
+    border-radius: 9px;
+}
+
+    .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+        box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #0dcaf0;
+    }
+
+.btn {
+    font-size: 17px;
+    padding: 7px 20px;
+    border-radius: 9px;
+}
+
+.navbar-brand {
+    font-weight: 700;
+}
+
+
+    .navbar-dark .navbar-nav .nav-link {
+    color: #ffffff;
+}
+
+
+.text-dark {
+    --bs-text-opacity: 1;
+    color: #212529 !important;
+}
