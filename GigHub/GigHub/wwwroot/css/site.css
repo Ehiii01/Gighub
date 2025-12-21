@@ -21,6 +21,11 @@ body {
   margin-bottom: 60px;
 }
 
+span.field-validation-error {
+    color: red;
+    font-weight: bold;
+}
+
 /* Bootstrap Overrides*/
 body{
     font-size: 17px;
