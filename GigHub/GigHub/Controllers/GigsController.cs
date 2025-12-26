@@ -19,7 +19,7 @@ namespace GigHub.Controllers
         {
             var viewModel = new GigFormViewModel 
             {
-                Genres = _context.Genres.ToList() 
+                Genres = _context.Genres.ToList()
             };
             return View(viewModel);
         }
@@ -41,7 +41,7 @@ namespace GigHub.Controllers
                 DateTime = viewModel.GetDateTime(),
                 GenreId = viewModel.Genre,
                 Venue = viewModel.Venue
-            };
+            }; 
 
             _context.Gigs.Add(gig);
             _context.SaveChanges();

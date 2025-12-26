@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using GigHub.Models;
+using System.ComponentModel.DataAnnotations;
 using System.Globalization;
 
 namespace GigHub.ViewModels
@@ -12,8 +13,8 @@ namespace GigHub.ViewModels
 
             var isValid = DateTime.TryParseExact(
                 Convert.ToString(value),
-                "d MMM yyyy",
-                CultureInfo.CurrentCulture,
+               formats:["d MMMM yyyy","dd MMM yyyy", "d MMM yyyy"],
+                CultureInfo.InvariantCulture,
                 DateTimeStyles.None,
                 out dateTime);
             return isValid && dateTime > DateTime.Now;

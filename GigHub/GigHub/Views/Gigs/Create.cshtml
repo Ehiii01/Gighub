@@ -9,7 +9,7 @@
 {
     <p class="alert alert-info">All Fields are <strong>required</strong></p>
     @Html.AntiForgeryToken()
-
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
     <div class="form-group pt-3">
         @Html.LabelFor(m => m.Venue)    
         @Html.TextBoxFor(m => m.Venue, new { @class = "form-control", autofocus = "autofocus" })
@@ -18,12 +18,12 @@
     </div>
     <div class="form-group pt-3">
         @Html.LabelFor(m => m.Date)
-        @Html.TextBoxFor(m => m.Date, new { @class = "form-control", placeholder = "eg 1 Jan 2015" })
+        @Html.TextBoxFor(m => m.Date, new { @class = "form-control", placeholder = "eg 1 Jan 2015 "})
         @Html.ValidationMessageFor(m => m.Date)
     </div>
     <div class="form-group pt-3">
         @Html.LabelFor(m => m.Time)
-        @Html.TextBoxFor(m => m.Time, new { @class = "form-control", placeholder = "20:00" })
+        @Html.TextBoxFor(m => m.Time, new { @class = "form-control", placeholder = "20:00 PM or 8:00 PM" })
         @Html.ValidationMessageFor(m => m.Time)
         @* <input asp-for="Time" class="form-control"/> *@
     </div>
