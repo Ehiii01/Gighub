@@ -82,3 +82,58 @@ body{
     --bs-text-opacity: 1;
     color: #212529 !important;
 }
+
+.mb-3 {
+    margin-bottom: 90px !important;
+}
+
+
+/* Page-level styles */
+.gigs {
+    list-style: none;
+}
+
+.gigs > li {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.gigs > li .date {
+    background: red;
+    color: white;
+    text-align: center;
+    width: 60px;
+    border-radius: 8px;
+}
+
+.gigs > li .date .month {
+     text-transform: uppercase;
+     font-size: 14px;
+     font-weight: bold;
+     padding: 2px 6px;
+}
+
+.gigs > li .date .day {
+    background-color: #f7f7f7;
+    color: #333;
+    font-size: 20px;
+    padding: 6px 12px;
+}
+
+
+.gigs > li .details {
+    position: absolute;
+    top: 0;
+    left: 70px;
+}
+
+.gigs > li .details .artist{
+    font-weight: bold;
+    display: block;
+}
+
+.gigs > li .details .genre {
+    font-size: 15px;
+}
+
+  
