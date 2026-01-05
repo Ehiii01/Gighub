@@ -2,7 +2,7 @@
 <Root Type="DevExpress.CodeRush.Foundation.Navigation.QuickFileNav.SolutionFileInfosContainer">
   <Options Language="Neutral">
     <Items>
-      <Item Id="{83461290-c02c-4e3b-8dcd-dd81afa95f3f}">
+      <Item Id="{8f068c1f-8ae7-4d67-9917-a2faf782058b}">
         <Filename>GigFormViewModel.cs</Filename>
         <FilePath>c:\users\dell\desktop\projects\learning projects\backend projects\learning backend (c#)\my github repos(backend)\gighub\gighub\gighub\viewmodels\gigformviewmodel.cs</FilePath>
         <Folders>
@@ -11,7 +11,7 @@
         <ProjectFileName>C:\Users\Dell\Desktop\Projects\Learning Projects\Backend Projects\Learning Backend (c#)\My GitHub repos(Backend)\Gighub\GigHub\GigHub\GigHub.csproj</ProjectFileName>
         <ProjectName>GigHub</ProjectName>
       </Item>
-      <Item Id="{29f17f4c-6874-4335-91f7-a4c4e0cb9e82}">
+      <Item Id="{b25c6445-7204-450a-84cd-76f5c7dfb9ab}">
         <Filename>GigsController.cs</Filename>
         <FilePath>c:\users\dell\desktop\projects\learning projects\backend projects\learning backend (c#)\my github repos(backend)\gighub\gighub\gighub\controllers\gigscontroller.cs</FilePath>
         <Folders>
@@ -20,7 +20,7 @@
         <ProjectFileName>C:\Users\Dell\Desktop\Projects\Learning Projects\Backend Projects\Learning Backend (c#)\My GitHub repos(Backend)\Gighub\GigHub\GigHub\GigHub.csproj</ProjectFileName>
         <ProjectName>GigHub</ProjectName>
       </Item>
-      <Item Id="{4a4ecc59-ffc5-4b42-867a-f77275827d52}">
+      <Item Id="{20bfba9d-6a7c-414c-b9f4-708546e8dfa3}">
         <Filename>Create.cshtml</Filename>
         <FilePath>c:\users\dell\desktop\projects\learning projects\backend projects\learning backend (c#)\my github repos(backend)\gighub\gighub\gighub\views\gigs\create.cshtml</FilePath>
         <Folders>
@@ -30,7 +30,7 @@
         <ProjectFileName>C:\Users\Dell\Desktop\Projects\Learning Projects\Backend Projects\Learning Backend (c#)\My GitHub repos(Backend)\Gighub\GigHub\GigHub\GigHub.csproj</ProjectFileName>
         <ProjectName>GigHub</ProjectName>
       </Item>
-      <Item Id="{07a66d0f-7050-4f5c-8c09-4b88782f4aa3}">
+      <Item Id="{2adf3446-8131-4281-8bc0-c54cd96acabd}">
         <Filename>_Layout.cshtml</Filename>
         <FilePath>c:\users\dell\desktop\projects\learning projects\backend projects\learning backend (c#)\my github repos(backend)\gighub\gighub\gighub\views\shared\_layout.cshtml</FilePath>
         <Folders>
@@ -40,7 +40,7 @@
         <ProjectFileName>C:\Users\Dell\Desktop\Projects\Learning Projects\Backend Projects\Learning Backend (c#)\My GitHub repos(Backend)\Gighub\GigHub\GigHub\GigHub.csproj</ProjectFileName>
         <ProjectName>GigHub</ProjectName>
       </Item>
-      <Item Id="{ea768b13-9602-416b-90f5-a6c991edc13f}">
+      <Item Id="{38887abc-af1a-4d0b-a0a9-6f9446c720e1}">
         <Filename>Create.cshtml</Filename>
         <FilePath>c:\users\dell\desktop\projects\learning projects\backend projects\learning backend (c#)\my github repos(backend)\gighub\gighub\gighub\views\gigs\create.cshtml</FilePath>
         <Folders>
@@ -50,7 +50,7 @@
         <ProjectFileName>C:\Users\Dell\Desktop\Projects\Learning Projects\Backend Projects\Learning Backend (c#)\My GitHub repos(Backend)\Gighub\GigHub\GigHub\GigHub.csproj</ProjectFileName>
         <ProjectName>GigHub</ProjectName>
       </Item>
-      <Item Id="{eee6e509-6286-4953-be29-e0c219a53487}">
+      <Item Id="{b6add76f-699d-4ff4-8369-8efffd9b8ed3}">
         <Filename>Gig.cs</Filename>
         <FilePath>C:\Users\Dell\Desktop\Projects\Learning Projects\Backend Projects\Learning Backend (c#)\My GitHub repos(Backend)\Gighub\GigHub\GigHub\Models\Gig.cs</FilePath>
         <Folders />
