@@ -1,5 +1,4 @@
 ﻿@using Microsoft.AspNetCore.Identity
-@using GigHub
 
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
@@ -17,17 +16,17 @@
                 @UserManager.GetUserName(User)
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Gigs I'm Attending</a></li>
+            <li><a class="dropdown-item" href="@Url.Action("Attending", "Gigs")">Gigs I'm Attending</a></li>
             <li><a class="dropdown-item" href="#">Artists I'm Following</a></li>
             <li class="nav-item">
-               <hr class="dropdown-divider">
+               <hr class="dropdown-divider"> 
                 <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
                         <button id="logout" type="submit" class="nav-link btn btn-link text-dark border-1">Logout</button>
                 </form>
             </li>
           </ul>
-        </li>
-}
+    </li>
+} 
 else
 {
     <li class="nav-item">

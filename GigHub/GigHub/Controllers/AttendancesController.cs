@@ -7,8 +7,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace GigHub.Controllers
 {
-
-
     [Authorize]
     [Route("api/[controller]")]
     [ApiController]

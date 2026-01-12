@@ -1,0 +1,170 @@
+﻿@model GigHub.ViewModels.GigsViewModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h1>@Model.Heading</h1>  
+<ul class="gigs voffset4">
+    @foreach (var gig in Model.UpcomingGigs)
+    {
+        <li>
+            <div class="date">
+                <div class="month">
+                    @gig.DateTime.ToString("MMM")
+                </div>
+                <div class="day">
+                    @gig.DateTime.ToString("d ")
+                </div>
+            </div>
+            <div class="details">
+                <span class="artist">
+                    @gig.Artist.Name
+
+                   @if (Model.ShowActions)
+                    {
+
+                        <button class="btn btn-link btn-sm js-toggle-follow" data-user-id="@gig.Artist.Id">Follow</button>
+                        
+                    }
+                </span>
+
+                <span class="genre">
+                    @gig.Genre.Name
+
+                    @if (Model.ShowActions)
+                    {
+
+                        <button data-gig-id="@gig.Id"  type="submit" class="btn btn-outline-secondary btn-sm js-toggle-attendance" 
+                        style="margin: 30px">Going?</button>
+                        
+                    }
+                </span>
+
+
+            </div>
+        </li>
+    }
+</ul>
+
+
+@section Scripts {
+     <script>
+         $(document).ready(function() {
+
+
+
+             // $(".js-toggle-attendance").click(function (e) {
+             //     var button = $(e.target);
+             //     debugger;
+             //     const gigIdValue = button.attr("data-gig-id");
+             //     $.post("/api/attendances", {gigId: gigIdValue})
+             //     .done(function() {
+             //         button
+             //         .removeClass("btn-outline-secondary")
+             //         .addClass("btn-info")
+             //         .text("Going");
+             //     })
+             //     .fail(function(){
+             //        alert("Something failed!");
+             //     })
+             // });
+
+
+
+
+             // debugger
+        $(".js-toggle-attendance").click(function (e) {
+            var button = $(e.target);
+             const gigIdValue = button.attr("data-gig-id")
+            $.ajax({
+                url: "/api/attendances",
+                method: "POST",
+                contentType: "application/json", 
+                data: JSON.stringify({ gigId: gigIdValue })
+            })
+            .done(function () {
+                // debugger;
+                button
+                    .removeClass("btn-outline-secondary")
+                    .addClass("btn-info")
+                    .text("Going");
+            })
+            .fail(function () {
+                // debugger;
+                alert("Something failed!");
+            });
+        });
+
+
+
+
+
+
+
+
+             $(".js-toggle-follow").click(function (e) {
+                 var  button = $(e.target);
+                  var followeeIdValue = button.attr("data-user-id");
+
+
+             $.ajax({  
+                 url: "/api/followings",
+                 method: "POST",
+                 contentType: "application/json",
+                 data: JSON.stringify({ followeeId: followeeIdValue  })
+             }).done(function (){
+                   button.text("Following");
+
+             }).fail(function (e) {
+                 alert("Something failed!");
+                 console.log("error message:",e);
+             })
+
+
+
+
+
+         });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // $(".js-toggle-follow").click(function (e) {
+        //    var button = $(e.target);
+        //     $.post("/api/followings", { followeeId: button.attr("data-user-id") })
+        //     .done(function () {
+        //         button.text("Following");
+        //     })
+        //     .fail(function () {
+        //        alert("Something failed!");
+        //     });
+
+        //   });
+
+
+
+
+
+
+         });
+
+
+
+
+
+
+
+
+    </script>
+}
