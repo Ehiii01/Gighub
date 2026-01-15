@@ -15,6 +15,15 @@ namespace GigHub.Controllers
         public GigsController(ApplicationDbContext context)
         {
             _context = context;
+        } 
+
+        [Authorize]
+        public IActionResult Mine()
+        {
+            var userName = User.Identity.Name;
+            var gigs = _context.Gigs
+                .Where(g => g.ArtistId == userName && g.DateTime > DateTime.Now)
+                .ToList();
         }
 
         [Authorize]

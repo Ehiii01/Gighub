@@ -76,7 +76,7 @@
              // debugger
         $(".js-toggle-attendance").click(function (e) {
             var button = $(e.target);
-             const gigIdValue = button.attr("data-gig-id")
+             const gigIdValue = button.attr("data-gig-id");
             $.ajax({
                 url: "/api/attendances",
                 method: "POST",
