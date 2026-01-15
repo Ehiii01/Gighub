@@ -21,9 +21,22 @@ namespace GigHub.Controllers
         public IActionResult Mine()
         {
             var userName = User.Identity.Name;
-            var gigs = _context.Gigs
-                .Where(g => g.ArtistId == userName && g.DateTime > DateTime.Now)
+            var attendee = _context.Users.FirstOrDefault(a => a.UserName == userName);
+
+            var gigs = _context.Gigs.Include(g => g.Genre)
+                .Where(g => g.ArtistId == attendee.Id && g.DateTime > DateTime.Now)
                 .ToList();
+
+
+
+            var viewModel = new GigsViewModel()
+            {
+                UpcomingGigs = gigs,
+                ShowActions = User.Identity.IsAuthenticated,
+                Heading = "My Gigs"
+            };
+
+            return View(viewModel);
         }
 
         [Authorize]

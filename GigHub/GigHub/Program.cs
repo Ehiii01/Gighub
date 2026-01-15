@@ -1,6 +1,5 @@
 using GigHub.Data;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Identity;
 using GigHub.Models;
 
 namespace GigHub
