@@ -1,11 +1,11 @@
-﻿@model GigHub.ViewModels.GigsViewModel
-
+﻿@model IEnumerable<GigHub.Models.Gig>
 @{
+    ViewData["Title"] = "Mine";
     Layout = "_Layout";
 }
-
+ <h1>My Upcoming Gigs</h1>
 <ul class="gigs voffset4">
-    @foreach (var gig in Model.UpcomingGigs)
+    @foreach (var gig in Model)
     {
         <li>
             <div class="date">
@@ -18,17 +18,12 @@
             </div>
             <div class="details">
                 <span class="artist">
-                    @gig.Artist.Name
-
-                    
-                </span>
+                    @gig.Venue
+                 </span>
 
                 <span class="genre">
                     @gig.Genre.Name
-
                 </span>
-
-
             </div>
         </li>
     }

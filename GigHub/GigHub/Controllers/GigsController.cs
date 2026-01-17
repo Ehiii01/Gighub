@@ -23,25 +23,24 @@ namespace GigHub.Controllers
             var userName = User.Identity.Name;
             var attendee = _context.Users.FirstOrDefault(a => a.UserName == userName);
 
-            var gigs = _context.Gigs.Include(g => g.Genre)
+            var gigs = _context.Gigs
                 .Where(g => g.ArtistId == attendee.Id && g.DateTime > DateTime.Now)
+                .Include(g => g.Genre)
                 .ToList();
 
+            // var viewModel = new GigsViewModel()
+            // {
+            //     UpcomingGigs = gigs,
+            //     ShowActions = User.Identity.IsAuthenticated,
+            //     Heading = "My Gigs"
+            // };
 
-
-            var viewModel = new GigsViewModel()
-            {
-                UpcomingGigs = gigs,
-                ShowActions = User.Identity.IsAuthenticated,
-                Heading = "My Gigs"
-            };
-
-            return View(viewModel);
+            return View(gigs);
         }
 
         [Authorize]
         public IActionResult Attending()
-        {
+        { 
             var userName = User.Identity.Name;
             var attendee = _context.Users.FirstOrDefault(a => a.UserName == userName);
 
@@ -95,7 +94,7 @@ namespace GigHub.Controllers
 
             _context.Gigs.Add(gig);
             _context.SaveChanges();
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Mine", "Gigs");
         }
     }
 }
