@@ -134,3 +134,11 @@ body { font-size: 17px; }
 }
 
 .gigs > li .details .genre { font-size: 15px; }
+
+.gigs > li .actions {
+    font-size: 15px;
+    display: none;
+}
+.gigs > li:hover .actions {
+    display: block;
+}
