@@ -27,9 +27,81 @@
                 <div class="actions">
                     <a href="@Url.Action("Edit", "Gigs", new { id = gig.Id })">
                         Edit
+                    </a> |
+                    <a href="#" class="js-cancel-gig" data-gig-id="@gig.Id">
+                        Cancel
                     </a>
                 </div>
             </div>
         </li>
     }
 </ul>
+@section Scripts
+{
+    <script>
+        $(document).ready(function () {
+
+            $(".js-cancel-gig").click(function (e) {
+                var link = $(e.target);
+                // var gigIdValue = link.attr("data-gig-id");
+
+                 debugger;
+                let dialog = bootbox.dialog({
+                    title: 'Confirm',
+                    message: "<p>Are you sure you want to cancel this gig?</p>",
+                    size: 'large',
+                    buttons: {
+                        no: {
+                            label: "No",
+                            className: 'btn-default',
+                            callback: function(){
+                                bootbox.hideAll();
+                                @* console.log('Custom cancel clicked'); *@
+                            }
+                        },
+                       yes: {
+                            label: "Yes",
+                            className: 'btn-danger',
+                            callback: function(){
+                                $.ajax({
+                                    url: "/api/Gigs/cancel/" + link.attr("data-gig-id"),
+                                    method: "DELETE"
+                                    // contentType: "application/json",
+                                    // data: JSON.stringify({ gigId: gigIdValue })
+                                    // data: { id: link.attr("data-gig-id") },
+                                    // data: {id: link.attr("data-gig-id")},
+                                    // contentType: "application/json"
+                                })
+                                    .done(function () {
+                                        link.parents("li").fadeOut(function () {
+                                            $(this).remove();
+                                        });
+                                    })
+                                    .fail(function () {
+                                        alert("Something failed!");
+                                    });
+                                @* console.log('Custom button clicked'); *@
+                                @* return false; *@
+                            }
+                        }
+                        // ok: {
+                        //     label: "I'm an OK button!",
+                        //     className: 'btn-info',
+                        //     callback: function(){
+                        //         console.log('Custom OK clicked');
+                        //     }
+                        // }
+                    }
+                });
+               // bootbox.confirm('Are you sure you want to cancel this gig?', function (result) {
+                
+                //});
+                          
+            });
+        });
+    </script>
+
+
+
+    <script src="~/lib/bootbox.min.js"></script>
+}

@@ -4,6 +4,7 @@ using GigHub.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GigHub.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260120140156_AddIsCanceledToGig")]
+    partial class AddIsCanceledToGig
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -172,57 +175,6 @@ namespace GigHub.Migrations
                     b.HasIndex("GenreId");
 
                     b.ToTable("Gigs");
-                });
-
-            modelBuilder.Entity("GigHub.Models.Notification", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("DateTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("GigId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("NotificationType")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("OriginalDateTIme")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("OriginalVenue")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("GigId");
-
-                    b.ToTable("Notifications");
-                });
-
-            modelBuilder.Entity("GigHub.Models.UserNotification", b =>
-                {
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)")
-                        .HasColumnOrder(1);
-
-                    b.Property<int>("NotificationId")
-                        .HasColumnType("int")
-                        .HasColumnOrder(2);
-
-                    b.Property<bool>("IsRead")
-                        .HasColumnType("bit");
-
-                    b.HasKey("UserId", "NotificationId");
-
-                    b.HasIndex("NotificationId");
-
-                    b.ToTable("UserNotifications");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -417,36 +369,6 @@ namespace GigHub.Migrations
                     b.Navigation("Artist");
 
                     b.Navigation("Genre");
-                });
-
-            modelBuilder.Entity("GigHub.Models.Notification", b =>
-                {
-                    b.HasOne("GigHub.Models.Gig", "Gig")
-                        .WithMany()
-                        .HasForeignKey("GigId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Gig");
-                });
-
-            modelBuilder.Entity("GigHub.Models.UserNotification", b =>
-                {
-                    b.HasOne("GigHub.Models.Notification", "Notification")
-                        .WithMany()
-                        .HasForeignKey("NotificationId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("GigHub.Models.ApplicationUser", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Notification");
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

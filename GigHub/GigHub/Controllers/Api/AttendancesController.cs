@@ -2,10 +2,9 @@
 using GigHub.Dtos;
 using GigHub.Models;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace GigHub.Controllers
+namespace GigHub.Controllers.Api
 {
     [Authorize]
     [Route("api/[controller]")]

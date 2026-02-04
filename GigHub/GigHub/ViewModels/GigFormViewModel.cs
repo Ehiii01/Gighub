@@ -26,7 +26,7 @@ namespace GigHub.ViewModels
 
         [ValidateNever]
         public IEnumerable<Genre> Genres { get; set; }
-
+        [ValidateNever]
         public string Heading { get; set; }
 
         public string Action

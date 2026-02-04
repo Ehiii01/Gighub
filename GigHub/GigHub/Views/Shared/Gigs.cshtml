@@ -20,7 +20,9 @@
             <div class="details">
                 <span class="artist">
                     @gig.Artist.Name
-
+                    @if (@gig.IsCanceled) {
+                        <span class="alert-warning">Cancelled</span>
+                    }
                    @if (Model.ShowActions)
                     {
 
@@ -32,11 +34,11 @@
                 <span class="genre">
                     @gig.Genre.Name
 
-                    @if (Model.ShowActions)
+                    @if (Model.ShowActions && !gig.IsCanceled)
                     {
 
-                        <button data-gig-id="@gig.Id"  type="submit" class="btn btn-outline-secondary btn-sm js-toggle-attendance" 
-                        style="margin: 30px">Going?</button>
+                        <button data-gig-id="@gig.Id" class="btn btn-default btn-sm js-toggle-attendance float-lg-end">
+                        Going?</button>
                         
                     }
                 </span>
@@ -73,10 +75,10 @@
 
 
 
-             // debugger
         $(".js-toggle-attendance").click(function (e) {
+            debugger;
             var button = $(e.target);
-             const gigIdValue = button.attr("data-gig-id");
+             var gigIdValue = button.attr("data-gig-id");
             $.ajax({
                 url: "/api/attendances",
                 method: "POST",
@@ -86,7 +88,7 @@
             .done(function () {
                 // debugger;
                 button
-                    .removeClass("btn-outline-secondary")
+                    .removeClass("btn-default")
                     .addClass("btn-info")
                     .text("Going");
             })
@@ -119,7 +121,7 @@
              }).fail(function (e) {
                  alert("Something failed!");
                  console.log("error message:",e);
-             })
+             });
 
 
 

@@ -8,8 +8,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/site.less" asp-append-version="true" />
     <link rel="stylesheet" href="~/GigHub.styles.css" asp-append-version="true" />
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 </head>
 <body>
     <header>
@@ -49,8 +51,91 @@
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/scripts/underscore-umd.js"></script>
+    <script src="~/scripts/moment-with-locales.min.js"></script>
+    <script src="~/scripts/bootbox.min.js"></script>
+     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+
+
+
+
+@*   <script type="text/x-template" id="notifications-template"> *@
+@*         <ul> *@
+@*             <% _.each(notifications, function(notification) *@
+@*              debugger; *@
+@*         { %> *@
+@*             <% if (notification.notificationType == 1 && notification.gig) { %>  *@
+@*             <li> *@
+@*                 <%= notification.gig.artist.name %> has cancelled the gig at  *@
+@*                 <%= notification.gig.venue %> on  *@
+@*                 <%= moment(notification.gig.dateTime).format("MMM D, YYYY h:mm A") %>. *@
+@*             </li>  *@
+@*              <% } %> *@
+@*             <% }) %> *@
+@*         </ul> *@
+@* </script> *@
+
+
+
+ 
+    <script type="text/x-template" id="notifications-template">
+    <ul class="notifications">
+    <%
+        _.each(notifications, function(notification){
+             if (notification.notificationType == 1) { %>
+                 <li><span class="highlight"><%= notification.gig.artist.name %></span> has cancelled the gig at <%= notification.gig.venue %> at <%= moment(notification.gig.dateTime).format("D MMM hh:mm ") %>.</li>
+             <% }
+        
+        if (notification.notificationType == 2) { %>
+        <li><span class="highlight"><%= notification.gig.artist.name %></span> has updated the gig at <%= notification.gig.venue %> at <%= moment(notification.gig.dateTime).format("D MMM hh:mm")%>.</li>
+        
+         <% }
+        
+        
+        
+        
+        
+        })
+    %>
+    </ul>
+    </script>
+    <script>
+        $(document).ready(function (){
+            $.getJSON("/api/notifications", function (notifications){
+                $(".js-notifications-count")
+                    .text(notifications.length)
+                    .removeClass("hide")
+                    .addClass("animate__animated animate__bounce animate__delay-2s");
+                $(".notifications").popover({
+                    html: true,
+                    title: 'Notifications',
+                    content: function () {
+                        var compiled = _.template($("#notifications-template").html());
+                        return compiled({notifications: notifications});
+                    },
+                    placement: 'bottom',
+                   template: '<div class="popover popover-notifications" role="tooltip"><div class="popover-arrow"></div><h3 class="popover-header"></h3><div class="popover-body"></div></div>'
+                })
+            });
+
+            @* const notificationEl = document.querySelector('.notifications'); *@
+            @* new bootstrap.Popover(notificationEl, { *@
+            @*     html: true, *@
+            @*     title: 'Notifications', *@
+            @*     content: function () { *@
+            @*         var compiled = _.template("Hello <%=name %>"); *@
+            @*         var html = compiled({name: "Mosh"}); *@
+            @*          *@
+            @*         return html; *@
+            @*     }, *@
+            @*     placement: 'bottom' *@
+            @* }); *@
+           
+
+;
+        }); 
+    </script>
 </body>
 </html>

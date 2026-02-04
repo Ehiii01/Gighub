@@ -1,8 +1,9 @@
+using AutoMapper;
 using GigHub.Data;
 using Microsoft.EntityFrameworkCore;
 using GigHub.Models;
 
-namespace GigHub
+namespace GigHub.App_Start
 {
     public static class Program
     {
@@ -11,6 +12,7 @@ namespace GigHub
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+            Mapper.Initialize(c => c.AddProfile<MappingProfile>());
             builder.Services.AddControllersWithViews();
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
             options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));

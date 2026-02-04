@@ -1,0 +1,26 @@
+[
+  //{
+  //  "outputFileName": "#)\\My GitHub repos(Backend)\\Gighub\\GigHub\\GigHub\\wwwroot\\lib\\bootbox.min.min.js",
+  //  "inputFiles": [
+  //    "#)\\My GitHub repos(Backend)\\Gighub\\GigHub\\GigHub\\wwwroot\\lib\\bootbox.min.js"
+  //  ]
+  //},
+  {
+    "outputFileName": "#)\\My GitHub repos(Backend)\\Gighub\\GigHub\\GigHub\\wwwroot\\lib\\underscore-umd.min.js",
+    "inputFiles": [
+      "#)\\My GitHub repos(Backend)\\Gighub\\GigHub\\GigHub\\wwwroot\\lib\\underscore-umd.js"
+    ]
+  },
+  {
+    "outputFileName": "#)\\My GitHub repos(Backend)\\Gighub\\GigHub\\GigHub\\wwwroot\\scripts\\moment-with-locales.min.min.js",
+    "inputFiles": [
+      "#)\\My GitHub repos(Backend)\\Gighub\\GigHub\\GigHub\\wwwroot\\scripts\\moment-with-locales.min.js"
+    ]
+  },
+  {
+    "outputFileName": "#)\\My GitHub repos(Backend)\\Gighub\\GigHub\\GigHub\\wwwroot\\scripts\\bootbox.min.min.js",
+    "inputFiles": [
+      "#)\\My GitHub repos(Backend)\\Gighub\\GigHub\\GigHub\\wwwroot\\scripts\\bootbox.min.js"
+    ]
+  }
+]
